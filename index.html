@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>T-Rex Auto Repair — Rio Linda, CA</title>
+		<meta name="description" content="T-Rex Auto Repair in Rio Linda, CA — over 40 years of trusted auto repair and scheduled maintenance for all makes and models. Call (916) 332-6995." />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -12,10 +13,17 @@
 		/>
 	</head>
 	<body>
+		<!-- Skip to content -->
+		<a href="#main" class="skip-link">Skip to main content</a>
+
 		<!-- Header -->
 		<header class="header">
-			<span class="header__logo"><img src="/src/assets/logo.png" alt="T-Rex" class="header__logo-img" /> AUTO REPAIR</span>
-			<nav class="header__nav">
+			<span class="header__logo"><img src="/src/assets/logo.webp" alt="T-Rex" class="header__logo-img" /> AUTO REPAIR</span>
+			<button class="header__toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menu">
+				<span class="header__toggle-bar"></span>
+				<span class="header__toggle-bar"></span>
+			</button>
+			<nav id="main-nav" class="header__nav">
 				<a href="#services" class="header__link">Services</a>
 				<a href="#hours" class="header__link">Hours</a>
 				<a href="#contact" class="header__link">Contact</a>
@@ -24,15 +32,15 @@
 		</header>
 
 		<!-- Hero -->
-		<section class="hero">
+		<main id="main">
+		<section class="hero" aria-labelledby="hero-heading">
 			<div class="hero__inner">
 				<div class="hero__content">
 					<span class="section-label section-label--green"
 						>Rio Linda, California</span
 					>
-					<h1 class="hero__title">
-						<span>Auto Repair Done Right.</span>
-						<span></span>
+					<h1 id="hero-heading" class="hero__title">
+						Auto Repair Done Right.
 					</h1>
 					<p class="hero__subtitle">
 						Fast, professional and reliable service — with over 40
@@ -42,21 +50,22 @@
 						<a href="#" class="btn btn--green btn--lg js-book-online" onclick="event.preventDefault(); AutoOps.show();"
 							>Schedule Appointment</a
 						>
-						<span class="hero__phone">(916) 332-6995</span>
+						<a href="tel:9163326995" class="hero__phone">(916) 332-6995</a>
 					</div>
 				</div>
 				<div class="hero__image">
 					<img
 						src="/src/assets/rex-1.webp"
 						alt="T-Rex Auto Repair shop front"
+						fetchpriority="high"
 					/>
+					<span class="hero__bg-text" aria-hidden="true">T-REX</span>
 				</div>
 			</div>
-			<span class="hero__bg-text" aria-hidden="true">T-REX</span>
 		</section>
 
 		<!-- Trust Strip -->
-		<section class="trust-strip">
+		<section class="trust-strip" aria-label="Why choose T-Rex">
 			<div class="trust-strip__item">
 				<span class="trust-strip__number">40+</span>
 				<span class="trust-strip__label">Years<br />Experience</span>
@@ -91,15 +100,16 @@
 		</section>
 
 		<!-- Service 1 -->
-		<section class="service-row">
+		<section class="service-row" aria-labelledby="service-repair-heading">
 			<div class="service-row__image">
 				<img
 					src="/src/assets/rex-2.webp"
 					alt="Man in front of T-Rex Auto Repair"
+					loading="lazy"
 				/>
 			</div>
 			<div class="service-row__content">
-				<h3 class="service-row__title">Auto Repair Service</h3>
+				<h3 id="service-repair-heading" class="service-row__title">Auto Repair Service</h3>
 				<p class="service-row__tagline">Stay safe on the road</p>
 				<p class="service-row__body">
 					You're a busy person — don't let car problems get in your
@@ -117,9 +127,9 @@
 		</section>
 
 		<!-- Service 2 -->
-		<section class="service-row service-row--reversed">
+		<section class="service-row service-row--reversed" aria-labelledby="service-maintenance-heading">
 			<div class="service-row__content">
-				<h3 class="service-row__title">Scheduled Maintenance</h3>
+				<h3 id="service-maintenance-heading" class="service-row__title">Scheduled Maintenance</h3>
 				<p class="service-row__tagline">
 					60 / 90 / 120K service intervals
 				</p>
@@ -141,6 +151,7 @@
 				<img
 					src="/src/assets/rex-3.webp"
 					alt="Mechanics working on car engine"
+					loading="lazy"
 				/>
 			</div>
 		</section>
@@ -169,7 +180,7 @@
 						>
 					</div>
 				</div>
-				<a href="tel:9163326995" class="btn btn--outline-green"
+				<a href="tel:9163326995" class="btn btn--outline-light"
 					>Call (916) 332-6995</a
 				>
 			</div>
@@ -177,6 +188,7 @@
 				<img
 					src="/src/assets/rex-4.webp"
 					alt="Three people smiling together"
+					loading="lazy"
 				/>
 			</div>
 		</section>
@@ -204,38 +216,59 @@
 						>
 					</div>
 				</div>
-				<form class="contact__form">
+				<form class="contact__form" id="contact-form">
 					<div class="contact__form-row">
 						<div class="contact__field">
-							<label class="contact__label">Name *</label>
+							<label for="contact-name" class="contact__label">Name *</label>
 							<input
+								id="contact-name"
 								type="text"
+								name="name"
 								class="contact__input"
+								autocomplete="name"
 								required
 							/>
 						</div>
 						<div class="contact__field">
-							<label class="contact__label">Email *</label>
+							<label for="contact-email" class="contact__label">Email *</label>
 							<input
+								id="contact-email"
 								type="email"
+								name="email"
 								class="contact__input"
+								autocomplete="email"
 								required
 							/>
 						</div>
 					</div>
 					<div class="contact__form-row">
 						<div class="contact__field">
-							<label class="contact__label">Phone</label>
-							<input type="tel" class="contact__input" />
+							<label for="contact-phone" class="contact__label">Phone</label>
+							<input
+								id="contact-phone"
+								type="tel"
+								name="phone"
+								class="contact__input"
+								autocomplete="tel"
+							/>
 						</div>
 						<div class="contact__field">
-							<label class="contact__label">Subject</label>
-							<input type="text" class="contact__input" />
+							<label for="contact-subject" class="contact__label">Subject</label>
+							<input
+								id="contact-subject"
+								type="text"
+								name="subject"
+								class="contact__input"
+							/>
 						</div>
 					</div>
 					<div class="contact__field">
-						<label class="contact__label">Message</label>
-						<textarea class="contact__textarea"></textarea>
+						<label for="contact-message" class="contact__label">Message</label>
+						<textarea
+							id="contact-message"
+							name="message"
+							class="contact__textarea"
+						></textarea>
 					</div>
 					<button type="submit" class="btn btn--dark">
 						Send Message
@@ -244,13 +277,18 @@
 			</div>
 		</section>
 
+		</main>
+
 		<!-- Footer -->
 		<footer class="footer">
-			<span class="footer__logo"><img src="/src/assets/logo.png" alt="T-Rex" class="footer__logo-img" /> AUTO REPAIR</span>
+			<span class="footer__logo"><img src="/src/assets/logo.webp" alt="T-Rex" class="footer__logo-img" /> AUTO REPAIR</span>
 			<span class="footer__copy"
-				>© 2018 T-Rex Towing & Auto Repair. Rio Linda, CA.</span
+				>© 2025 T-Rex Towing & Auto Repair. Rio Linda, CA.</span
 			>
-			<span class="footer__phone">(916) 332-6995</span>
+			<div class="footer__links">
+				<a href="tel:9163326995" class="footer__phone">(916) 332-6995</a>
+				<a href="https://www.facebook.com/trexautorepair" target="_blank" rel="noopener" class="footer__social">Facebook</a>
+			</div>
 		</footer>
 
 		<script type="module" src="/src/main.js"></script>
@@ -260,6 +298,7 @@
 			data-google-analytics-enabled="true"
 			data-loading-color="000000"
 			src="https://portal.autoops.com/portal-scripts.js"
+			defer
 		></script>
 	</body>
 </html>

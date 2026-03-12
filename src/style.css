@@ -7,11 +7,6 @@
 }
 
 :root {
-	/* Colors */
-	--text: #1a1a1a;
-	--text-muted: #666;
-	--bg: #fafafa;
-
 	/* Palette */
 	--cream: #f2ede4;
 	--cream-dark: #e8e3da;
@@ -98,6 +93,50 @@ html.lenis body {
 }
 
 /* ============================================
+   Skip Link
+   ============================================ */
+
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: var(--space-md);
+	z-index: 100;
+	padding: var(--space-sm) var(--space-md);
+	background: var(--green);
+	color: var(--cream);
+	font-family: var(--font-body);
+	font-size: var(--text-sm);
+	font-weight: 500;
+	border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+	top: var(--space-md);
+}
+
+/* ============================================
+   Focus Indicators
+   ============================================ */
+
+:focus-visible {
+	outline: 2px solid var(--green);
+	outline-offset: 0.125em;
+}
+
+.header :focus-visible,
+.hero :focus-visible,
+.hours :focus-visible,
+.footer :focus-visible {
+	outline-color: var(--cream);
+}
+
+.contact__input:focus-visible,
+.contact__textarea:focus-visible {
+	outline: 2px solid var(--dark);
+	outline-offset: 0.125em;
+}
+
+/* ============================================
    Buttons
    ============================================ */
 
@@ -122,6 +161,16 @@ html.lenis body {
 	opacity: 0.85;
 }
 
+.btn:active {
+	opacity: 0.7;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	cursor: default;
+	pointer-events: none;
+}
+
 .btn--green {
 	background: var(--green);
 	color: var(--cream);
@@ -136,6 +185,15 @@ html.lenis body {
 	background: transparent;
 	color: var(--green);
 	border: 1px solid var(--green);
+	font-size: 0.875em;
+	padding: 1em 2.25em;
+	align-self: flex-start;
+}
+
+.btn--outline-light {
+	background: transparent;
+	color: var(--cream);
+	border: 1px solid var(--cream);
 	font-size: 0.875em;
 	padding: 1em 2.25em;
 	align-self: flex-start;
@@ -258,6 +316,38 @@ html.lenis body {
 	color: var(--cream);
 }
 
+.header__toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.375em;
+	width: 2.75em;
+	height: 2.75em;
+	padding: 0.625em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	z-index: 91;
+}
+
+.header__toggle-bar {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: var(--cream);
+	border-radius: 1px;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.header__toggle[aria-expanded="true"] .header__toggle-bar:first-child {
+	transform: translateY(0.25em) rotate(45deg);
+}
+
+.header__toggle[aria-expanded="true"] .header__toggle-bar:last-child {
+	transform: translateY(-0.25em) rotate(-45deg);
+}
+
 /* ============================================
    Hero
    ============================================ */
@@ -314,11 +404,17 @@ html.lenis body {
 	font-size: 0.875em;
 	letter-spacing: 0.02em;
 	color: var(--stone-400);
+	transition: color 0.2s;
+}
+
+.hero__phone:hover {
+	color: var(--cream);
 }
 
 .hero__image {
+	position: relative;
 	width: 32.5em;
-	height: 30em;
+	aspect-ratio: 13 / 12;
 	flex-shrink: 0;
 	border-radius: 0.1875em;
 	overflow: hidden;
@@ -326,8 +422,8 @@ html.lenis body {
 
 .hero__bg-text {
 	position: absolute;
-	top: 1.25em;
-	right: -1.25em;
+	top: 0;
+	right: 0;
 	font-family: var(--font-display);
 	font-size: 13.75em;
 	letter-spacing: 0.05em;
@@ -369,7 +465,7 @@ html.lenis body {
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	line-height: 1.35;
-	color: rgba(242, 237, 228, 0.7);
+	color: rgba(242, 237, 228, 0.85);
 }
 
 .trust-strip__divider {
@@ -400,6 +496,8 @@ html.lenis body {
 	gap: var(--space-2xl);
 	padding: 0 4em;
 	background: var(--cream);
+	content-visibility: auto;
+	contain-intrinsic-size: auto 30em;
 }
 
 .service-row--reversed {
@@ -411,7 +509,7 @@ html.lenis body {
 	flex: 1;
 	border-radius: 0.1875em;
 	overflow: hidden;
-	min-height: 29.75em;
+	aspect-ratio: 4 / 3;
 }
 
 .service-row__content {
@@ -419,7 +517,7 @@ html.lenis body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 1.25em;
+	gap: var(--space-md);
 	padding: var(--space-lg) 0;
 }
 
@@ -458,13 +556,15 @@ html.lenis body {
 	gap: var(--space-3xl);
 	padding: 6.25em 4em;
 	background: var(--dark);
+	content-visibility: auto;
+	contain-intrinsic-size: auto 35em;
 }
 
 .hours__content {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 2.5em;
+	gap: var(--space-2xl);
 }
 
 .hours__table {
@@ -505,7 +605,7 @@ html.lenis body {
 	flex: 1;
 	border-radius: 0.1875em;
 	overflow: hidden;
-	min-height: 28.75em;
+	aspect-ratio: 4 / 3;
 }
 
 /* ============================================
@@ -518,6 +618,8 @@ html.lenis body {
 	gap: var(--space-2xl);
 	padding: 6.25em 4em 3.75em;
 	background: var(--cream);
+	content-visibility: auto;
+	contain-intrinsic-size: auto 40em;
 }
 
 .contact__inner {
@@ -629,10 +731,6 @@ html.lenis body {
 }
 
 /* ============================================
-   Map
-   ============================================ */
-
-/* ============================================
    Footer
    ============================================ */
 
@@ -669,11 +767,35 @@ html.lenis body {
 	color: var(--stone-600);
 }
 
+.footer__links {
+	display: flex;
+	align-items: center;
+	gap: var(--space-lg);
+}
+
 .footer__phone {
 	font-family: var(--font-body);
 	font-size: 0.8125em;
 	letter-spacing: 0.02em;
 	color: var(--stone-400);
+	transition: color 0.2s;
+}
+
+.footer__phone:hover {
+	color: var(--cream);
+}
+
+.footer__social {
+	font-family: var(--font-body);
+	font-size: 0.8125em;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--stone-400);
+	transition: color 0.2s;
+}
+
+.footer__social:hover {
+	color: var(--cream);
 }
 
 /* ============================================
@@ -696,7 +818,7 @@ html.lenis body {
 
 	.hero__image {
 		width: 100%;
-		height: 24em;
+		aspect-ratio: 16 / 9;
 	}
 
 	.trust-strip {
@@ -711,7 +833,7 @@ html.lenis body {
 	}
 
 	.services {
-		padding: 4em 2em 0;
+		padding: 4em 2em var(--space-xl);
 	}
 
 	.service-row {
@@ -720,12 +842,12 @@ html.lenis body {
 	}
 
 	.service-row--reversed {
-		flex-direction: column;
+		flex-direction: column-reverse;
 		padding-bottom: 4em;
 	}
 
 	.service-row__image {
-		min-height: 20em;
+		aspect-ratio: 3 / 2;
 	}
 
 	.hours {
@@ -735,7 +857,7 @@ html.lenis body {
 	}
 
 	.hours__image {
-		min-height: 20em;
+		aspect-ratio: 3 / 2;
 	}
 
 	.contact {
@@ -757,12 +879,61 @@ html.lenis body {
 }
 
 /* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ============================================
    Responsive — mobile
    ============================================ */
 
 @media (max-width: 640px) {
+	/* Header — hamburger + overlay nav */
+	.header__toggle {
+		display: flex;
+	}
+
 	.header__nav {
-		gap: var(--space-md);
+		position: fixed;
+		inset: 0;
+		z-index: 90;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xl);
+		background: var(--dark);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s, visibility 0.3s;
+	}
+
+	.header__nav.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.header__nav .header__link {
+		font-size: var(--text-lg);
+	}
+
+	.header__nav .btn {
+		font-size: var(--text-base);
+		padding: 1em 2.5em;
+	}
+
+	/* Hero */
+	.hero__title {
+		font-size: 3.5em;
 	}
 
 	.hero__actions {
@@ -770,19 +941,37 @@ html.lenis body {
 		align-items: flex-start;
 	}
 
+	/* Trust strip */
 	.trust-strip {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: var(--space-md);
 	}
 
+	/* Section titles */
+	.section-title {
+		font-size: 3em;
+	}
+
+	/* Service rows — image always first on mobile */
+	.service-row--reversed {
+		flex-direction: column-reverse;
+	}
+
+	/* Contact */
 	.contact__form-row {
 		flex-direction: column;
 	}
 
+	/* Footer */
 	.footer {
 		flex-direction: column;
 		gap: var(--space-md);
 		text-align: center;
+	}
+
+	.footer__links {
+		flex-direction: column;
+		gap: var(--space-sm);
 	}
 }
