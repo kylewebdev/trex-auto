@@ -43,9 +43,9 @@
 	--radius-lg: 0.75em;
 
 	/* Fonts */
-	--font-display: "Bebas Neue", system-ui, sans-serif;
+	--font-display: "Archivo Black", system-ui, sans-serif;
 	--font-body: "Space Grotesk", system-ui, sans-serif;
-	--font-serif: "Instrument Serif", system-ui, sans-serif;
+	--font-serif: "Roboto Slab", system-ui, serif;
 }
 
 body {
@@ -251,11 +251,12 @@ html.lenis body {
 
 .section-title {
 	font-family: var(--font-display);
-	font-size: 4.5em;
-	line-height: 0.94;
-	letter-spacing: 0.02em;
+	font-size: 3.5em;
+	line-height: 0.97;
+	letter-spacing: -0.01em;
 	color: var(--dark);
 	text-wrap: balance;
+	text-transform: uppercase;
 }
 
 .section-title--light {
@@ -279,15 +280,17 @@ html.lenis body {
 	flex-direction: column;
 	align-items: center;
 	gap: 0.15em;
-	font-family: var(--font-display);
-	font-size: 1.375em;
-	letter-spacing: 0.15em;
+	font-family: var(--font-serif);
+	font-size: 1.125em;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
 	color: var(--cream);
 	line-height: 1.25;
 }
 
 .header__logo-img {
-	height: 2em;
+	height: 2.8em;
 	width: auto;
 }
 
@@ -371,18 +374,19 @@ html.lenis body {
 
 .hero__title {
 	font-family: var(--font-display);
-	font-size: 6em;
-	line-height: 0.92;
-	letter-spacing: 0.02em;
+	font-size: 4.5em;
+	line-height: 0.95;
+	letter-spacing: -0.01em;
 	color: var(--cream);
-	max-width: 12ch;
+	max-width: 14ch;
 	text-wrap: balance;
+	text-transform: uppercase;
 }
 
 .hero__subtitle {
 	font-family: var(--font-serif);
-	font-size: 1.375em;
-	font-style: italic;
+	font-size: 1.25em;
+	font-weight: 400;
 	line-height: 1.45;
 	color: var(--stone-400);
 	max-width: 27.5em;
@@ -421,12 +425,13 @@ html.lenis body {
 	top: 0;
 	right: 0;
 	font-family: var(--font-display);
-	font-size: 13.75em;
-	letter-spacing: 0.05em;
+	font-size: 10em;
+	letter-spacing: 0.02em;
 	line-height: 0.9;
 	color: rgba(242, 237, 228, 0.04);
 	pointer-events: none;
 	user-select: none;
+	text-transform: uppercase;
 }
 
 /* ============================================
@@ -449,10 +454,11 @@ html.lenis body {
 
 .trust-strip__number {
 	font-family: var(--font-display);
-	font-size: 2.25em;
-	letter-spacing: 0.02em;
+	font-size: 1.75em;
+	letter-spacing: -0.01em;
 	line-height: 1;
 	color: var(--cream);
+	text-transform: uppercase;
 }
 
 .trust-strip__label {
@@ -519,17 +525,18 @@ html.lenis body {
 
 .service-row__title {
 	font-family: var(--font-display);
-	font-size: 2.5em;
-	line-height: 1;
-	letter-spacing: 0.02em;
+	font-size: 2em;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
 	color: var(--dark);
 	text-wrap: balance;
+	text-transform: uppercase;
 }
 
 .service-row__tagline {
 	font-family: var(--font-serif);
-	font-size: var(--text-lg);
-	font-style: italic;
+	font-size: var(--text-base);
+	font-weight: 400;
 	line-height: 1.35;
 	color: var(--green);
 }
@@ -771,15 +778,17 @@ html.lenis body {
 	flex-direction: column;
 	align-items: center;
 	gap: 0.15em;
-	font-family: var(--font-display);
-	font-size: var(--text-lg);
-	letter-spacing: 0.12em;
+	font-family: var(--font-serif);
+	font-size: var(--text-base);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
 	color: var(--cream);
 	line-height: 1.2;
 }
 
 .footer__logo-img {
-	height: 1.75em;
+	height: 2.6em;
 	width: auto;
 }
 
@@ -893,7 +902,15 @@ html.lenis body {
 	}
 
 	.footer {
+		flex-direction: column;
+		gap: var(--space-md);
+		text-align: center;
 		padding: 2em;
+	}
+
+	.footer__links {
+		flex-direction: column;
+		gap: var(--space-sm);
 	}
 }
 
@@ -954,7 +971,7 @@ html.lenis body {
 
 	/* Hero */
 	.hero__title {
-		font-size: 3.5em;
+		font-size: 2.75em;
 	}
 
 	.hero__actions {
@@ -971,7 +988,7 @@ html.lenis body {
 
 	/* Section titles */
 	.section-title {
-		font-size: 3em;
+		font-size: 2.5em;
 	}
 
 	/* Service rows — image always first on mobile */
@@ -984,15 +1001,4 @@ html.lenis body {
 		grid-template-columns: 1fr;
 	}
 
-	/* Footer */
-	.footer {
-		flex-direction: column;
-		gap: var(--space-md);
-		text-align: center;
-	}
-
-	.footer__links {
-		flex-direction: column;
-		gap: var(--space-sm);
-	}
 }
