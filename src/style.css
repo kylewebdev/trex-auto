@@ -563,6 +563,7 @@ html.lenis body {
 	cursor: ew-resize;
 	user-select: none;
 	-webkit-user-select: none;
+	touch-action: none;
 	--pos: 50%;
 }
 

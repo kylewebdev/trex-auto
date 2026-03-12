@@ -49,13 +49,17 @@ document.querySelectorAll('.compare').forEach((el) => {
     update(e.clientX)
 
     const onMove = (e) => update(e.clientX)
-    const onUp = () => {
+    const cleanup = () => {
       el.removeEventListener('pointermove', onMove)
-      el.removeEventListener('pointerup', onUp)
+      el.removeEventListener('pointerup', cleanup)
+      el.removeEventListener('pointercancel', cleanup)
+      el.removeEventListener('lostpointercapture', cleanup)
     }
 
     el.addEventListener('pointermove', onMove)
-    el.addEventListener('pointerup', onUp)
+    el.addEventListener('pointerup', cleanup)
+    el.addEventListener('pointercancel', cleanup)
+    el.addEventListener('lostpointercapture', cleanup)
   })
 })
 
