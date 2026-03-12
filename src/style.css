@@ -470,6 +470,11 @@ html.lenis body {
 	color: rgba(242, 237, 228, 0.85);
 }
 
+.trust-strip__item--link {
+	text-decoration: none;
+	color: inherit;
+}
+
 .trust-strip__divider {
 	width: 1px;
 	height: var(--space-xl);
