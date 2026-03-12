@@ -200,80 +200,24 @@
 				<span class="section-header__text">Contact</span>
 				<span class="section-header__line"></span>
 			</div>
-			<div class="contact__inner">
-				<div class="contact__info">
-					<h2 class="section-title">Get In Touch</h2>
-					<div class="contact__details">
-						<p class="contact__address">2577 Elkhorn Blvd</p>
-						<p class="contact__address">Rio Linda, CA 95673</p>
-						<a
-							href="mailto:mark@trexautorepair.com"
-							class="contact__link"
-							>mark@trexautorepair.com</a
-						>
-						<a href="tel:9163326995" class="contact__link"
-							>(916) 332-6995</a
-						>
-					</div>
+			<h2 class="section-title">Get In Touch</h2>
+			<div class="contact__grid">
+				<div class="contact__block">
+					<span class="contact__block-label">Visit</span>
+					<p class="contact__block-text">2577 Elkhorn Blvd<br />Rio Linda, CA 95673</p>
 				</div>
-				<form class="contact__form" id="contact-form">
-					<div class="contact__form-row">
-						<div class="contact__field">
-							<label for="contact-name" class="contact__label">Name *</label>
-							<input
-								id="contact-name"
-								type="text"
-								name="name"
-								class="contact__input"
-								autocomplete="name"
-								required
-							/>
-						</div>
-						<div class="contact__field">
-							<label for="contact-email" class="contact__label">Email *</label>
-							<input
-								id="contact-email"
-								type="email"
-								name="email"
-								class="contact__input"
-								autocomplete="email"
-								required
-							/>
-						</div>
-					</div>
-					<div class="contact__form-row">
-						<div class="contact__field">
-							<label for="contact-phone" class="contact__label">Phone</label>
-							<input
-								id="contact-phone"
-								type="tel"
-								name="phone"
-								class="contact__input"
-								autocomplete="tel"
-							/>
-						</div>
-						<div class="contact__field">
-							<label for="contact-subject" class="contact__label">Subject</label>
-							<input
-								id="contact-subject"
-								type="text"
-								name="subject"
-								class="contact__input"
-							/>
-						</div>
-					</div>
-					<div class="contact__field">
-						<label for="contact-message" class="contact__label">Message</label>
-						<textarea
-							id="contact-message"
-							name="message"
-							class="contact__textarea"
-						></textarea>
-					</div>
-					<button type="submit" class="btn btn--dark">
-						Send Message
-					</button>
-				</form>
+				<div class="contact__block">
+					<span class="contact__block-label">Call</span>
+					<a href="tel:9163326995" class="contact__block-link">(916) 332-6995</a>
+				</div>
+				<div class="contact__block">
+					<span class="contact__block-label">Email</span>
+					<a href="mailto:mark@trexautorepair.com" class="contact__block-link">mark@trexautorepair.com</a>
+				</div>
+				<div class="contact__block contact__block--cta">
+					<span class="contact__block-label">Book Online</span>
+					<a href="#" class="btn btn--green btn--lg js-book-online" onclick="event.preventDefault(); AutoOps.show();">Schedule Appointment</a>
+				</div>
 			</div>
 		</section>
 

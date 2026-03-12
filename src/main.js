@@ -55,14 +55,3 @@ if (toggle && nav) {
   })
 }
 
-// Contact form — prevent default GET submission
-const contactForm = document.getElementById('contact-form')
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const btn = contactForm.querySelector('button[type="submit"]')
-    btn.textContent = 'Sent — Thank you!'
-    btn.disabled = true
-    contactForm.reset()
-  })
-}
