@@ -37,18 +37,27 @@ if (!prefersReducedMotion) {
 
 // Before / after compare slider
 document.querySelectorAll('.compare').forEach((el) => {
-  const update = (x) => {
+  const setPos = (pct) => {
+    const clamped = Math.max(0, Math.min(100, pct))
+    el.style.setProperty('--pos', `${clamped}%`)
+    el.setAttribute('aria-valuenow', Math.round(clamped))
+    el.setAttribute(
+      'aria-valuetext',
+      `${Math.round(clamped)} percent, showing ${Math.round(clamped)}% before and ${Math.round(100 - clamped)}% after`
+    )
+  }
+
+  const updateFromPointer = (x) => {
     const rect = el.getBoundingClientRect()
-    const pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100))
-    el.style.setProperty('--pos', `${pct}%`)
+    setPos(((x - rect.left) / rect.width) * 100)
   }
 
   el.addEventListener('pointerdown', (e) => {
     e.preventDefault()
     el.setPointerCapture(e.pointerId)
-    update(e.clientX)
+    updateFromPointer(e.clientX)
 
-    const onMove = (e) => update(e.clientX)
+    const onMove = (e) => updateFromPointer(e.clientX)
     const cleanup = () => {
       el.removeEventListener('pointermove', onMove)
       el.removeEventListener('pointerup', cleanup)
@@ -61,25 +70,96 @@ document.querySelectorAll('.compare').forEach((el) => {
     el.addEventListener('pointercancel', cleanup)
     el.addEventListener('lostpointercapture', cleanup)
   })
+
+  // Keyboard support
+  el.addEventListener('keydown', (e) => {
+    const current = parseFloat(el.getAttribute('aria-valuenow')) || 50
+    const step = e.shiftKey ? 10 : 2
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+      e.preventDefault()
+      setPos(current - step)
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      setPos(current + step)
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      setPos(0)
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      setPos(100)
+    }
+  })
 })
+
+// Book online buttons (CSP-safe, no inline handlers)
+document.querySelectorAll('.js-book-online').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (typeof AutoOps !== 'undefined') {
+      AutoOps.show()
+    }
+  })
+})
+
+// Dynamic copyright year
+const yearEl = document.querySelector('.js-year')
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear()
+}
 
 // Mobile nav toggle
 const toggle = document.querySelector('.header__toggle')
 const nav = document.getElementById('main-nav')
 
 if (toggle && nav) {
+  const focusableSelector = 'a[href], button, [tabindex]:not([tabindex="-1"])'
+
+  const openNav = () => {
+    toggle.setAttribute('aria-expanded', 'true')
+    nav.classList.add('is-open')
+    const firstLink = nav.querySelector(focusableSelector)
+    if (firstLink) firstLink.focus()
+  }
+
+  const closeNav = () => {
+    toggle.setAttribute('aria-expanded', 'false')
+    nav.classList.remove('is-open')
+    toggle.focus()
+  }
+
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') === 'true'
-    toggle.setAttribute('aria-expanded', String(!open))
-    nav.classList.toggle('is-open', !open)
+    if (open) closeNav()
+    else openNav()
   })
 
   // Close nav when a link is tapped
   nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false')
-      nav.classList.remove('is-open')
-    })
+    link.addEventListener('click', closeNav)
+  })
+
+  // Focus trap and Escape key
+  nav.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      e.preventDefault()
+      closeNav()
+      return
+    }
+
+    if (e.key !== 'Tab') return
+
+    const focusable = [...nav.querySelectorAll(focusableSelector)]
+    if (focusable.length === 0) return
+
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
   })
 }
-

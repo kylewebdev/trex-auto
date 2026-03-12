@@ -81,7 +81,7 @@
 				<a href="#services" class="header__link">Services</a>
 				<a href="#hours" class="header__link">Hours</a>
 				<a href="#contact" class="header__link">Contact</a>
-				<a href="#" class="btn btn--green js-book-online" onclick="event.preventDefault(); AutoOps.show();">Book Now</a>
+				<a href="#" class="btn btn--green js-book-online">Book Now</a>
 			</nav>
 		</header>
 
@@ -101,8 +101,7 @@
 						years in the industry.
 					</p>
 					<div class="hero__actions">
-						<a href="#" class="btn btn--green btn--lg js-book-online" onclick="event.preventDefault(); AutoOps.show();"
-							>Schedule Appointment</a
+						<a href="#" class="btn btn--green btn--lg js-book-online" 							>Schedule Appointment</a
 						>
 						<a href="tel:9163326995" class="hero__phone">(916) 332-6995</a>
 					</div>
@@ -155,7 +154,7 @@
 
 		<!-- Service 1 -->
 		<section class="service-row" aria-labelledby="service-repair-heading">
-			<div class="compare" aria-label="Before and after auto repair comparison">
+			<div class="compare" role="slider" tabindex="0" aria-label="Before and after auto repair comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50 percent, showing half before and half after">
 				<img
 					src="/src/assets/trex-after.jpg"
 					alt="Car after T-Rex auto repair"
@@ -295,7 +294,7 @@
 		<footer class="footer">
 			<span class="footer__logo"><img src="/src/assets/logo.webp" alt="T-Rex" class="footer__logo-img" /> AUTO REPAIR</span>
 			<span class="footer__copy"
-				>© <script>document.write(new Date().getFullYear())</script> T-Rex Towing & Auto Repair. Rio Linda, CA.</span
+				>© <span class="js-year"></span> T-Rex Towing & Auto Repair. Rio Linda, CA.</span
 			>
 			<div class="footer__links">
 				<a href="tel:9163326995" class="footer__phone">(916) 332-6995</a>
