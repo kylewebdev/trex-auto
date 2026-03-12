@@ -35,6 +35,30 @@ if (!prefersReducedMotion) {
   })
 }
 
+// Before / after compare slider
+document.querySelectorAll('.compare').forEach((el) => {
+  const update = (x) => {
+    const rect = el.getBoundingClientRect()
+    const pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100))
+    el.style.setProperty('--pos', `${pct}%`)
+  }
+
+  el.addEventListener('pointerdown', (e) => {
+    e.preventDefault()
+    el.setPointerCapture(e.pointerId)
+    update(e.clientX)
+
+    const onMove = (e) => update(e.clientX)
+    const onUp = () => {
+      el.removeEventListener('pointermove', onMove)
+      el.removeEventListener('pointerup', onUp)
+    }
+
+    el.addEventListener('pointermove', onMove)
+    el.addEventListener('pointerup', onUp)
+  })
+})
+
 // Mobile nav toggle
 const toggle = document.querySelector('.header__toggle')
 const nav = document.getElementById('main-nav')
