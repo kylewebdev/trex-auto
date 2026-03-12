@@ -331,7 +331,9 @@ html.lenis body {
 	height: 2px;
 	background: var(--cream);
 	border-radius: 1px;
-	transition: transform 0.3s, opacity 0.3s;
+	transition:
+		transform 0.3s,
+		opacity 0.3s;
 }
 
 .header__toggle[aria-expanded="true"] .header__toggle-bar:first-child {
@@ -620,8 +622,6 @@ html.lenis body {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: var(--space-2xl);
-	border-top: 1px solid var(--cream-border);
-	padding-top: var(--space-2xl);
 }
 
 .contact__block {
@@ -848,7 +848,9 @@ html.lenis body {
 		background: var(--dark);
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity 0.3s, visibility 0.3s;
+		transition:
+			opacity 0.3s,
+			visibility 0.3s;
 	}
 
 	.header__nav.is-open {
