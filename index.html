@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>T-Rex Auto Repair — Rio Linda, CA</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=Space+Grotesk:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<span class="header__logo"><img src="/src/assets/logo.png" alt="T-Rex" class="header__logo-img" /> AUTO REPAIR</span>
+			<nav class="header__nav">
+				<a href="#services" class="header__link">Services</a>
+				<a href="#hours" class="header__link">Hours</a>
+				<a href="#contact" class="header__link">Contact</a>
+				<a href="#" class="btn btn--green js-book-online" onclick="event.preventDefault(); AutoOps.show();">Book Now</a>
+			</nav>
+		</header>
+
+		<!-- Hero -->
+		<section class="hero">
+			<div class="hero__inner">
+				<div class="hero__content">
+					<span class="section-label section-label--green"
+						>Rio Linda, California</span
+					>
+					<h1 class="hero__title">
+						<span>Auto Repair Done Right.</span>
+						<span></span>
+					</h1>
+					<p class="hero__subtitle">
+						Fast, professional and reliable service — with over 40
+						years in the industry.
+					</p>
+					<div class="hero__actions">
+						<a href="#" class="btn btn--green btn--lg js-book-online" onclick="event.preventDefault(); AutoOps.show();"
+							>Schedule Appointment</a
+						>
+						<span class="hero__phone">(916) 332-6995</span>
+					</div>
+				</div>
+				<div class="hero__image">
+					<img
+						src="/src/assets/rex-1.webp"
+						alt="T-Rex Auto Repair shop front"
+					/>
+				</div>
+			</div>
+			<span class="hero__bg-text" aria-hidden="true">T-REX</span>
+		</section>
+
+		<!-- Trust Strip -->
+		<section class="trust-strip">
+			<div class="trust-strip__item">
+				<span class="trust-strip__number">40+</span>
+				<span class="trust-strip__label">Years<br />Experience</span>
+			</div>
+			<div class="trust-strip__divider"></div>
+			<div class="trust-strip__item">
+				<span class="trust-strip__number">All</span>
+				<span class="trust-strip__label">Makes &<br />Models</span>
+			</div>
+			<div class="trust-strip__divider"></div>
+			<div class="trust-strip__item">
+				<span class="trust-strip__number">Certified</span>
+				<span class="trust-strip__label">Auto Repair<br />Shop</span>
+			</div>
+			<div class="trust-strip__divider"></div>
+			<div class="trust-strip__item">
+				<span class="trust-strip__number">4.7</span>
+				<span class="trust-strip__label"
+					>600+ Reviews<br />Google & Yelp</span
+				>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section id="services" class="services">
+			<div class="section-header">
+				<span class="section-header__num">01</span>
+				<span class="section-header__text">Services</span>
+				<span class="section-header__line"></span>
+			</div>
+			<h2 class="section-title">What We Do For You</h2>
+		</section>
+
+		<!-- Service 1 -->
+		<section class="service-row">
+			<div class="service-row__image">
+				<img
+					src="/src/assets/rex-2.webp"
+					alt="Man in front of T-Rex Auto Repair"
+				/>
+			</div>
+			<div class="service-row__content">
+				<h3 class="service-row__title">Auto Repair Service</h3>
+				<p class="service-row__tagline">Stay safe on the road</p>
+				<p class="service-row__body">
+					You're a busy person — don't let car problems get in your
+					way. T-Rex Auto Repair has the equipment and experience to
+					locate, repair and replace issues quickly and effectively.
+					From engine diagnostics and brake replacements to electrical
+					systems and transmission work, our certified technicians
+					handle it all. We service all makes and models, foreign and
+					domestic, and we stand behind every job with honest pricing
+					and no surprises. Whether it's a warning light on your
+					dashboard or a noise you can't ignore, bring it to T-Rex and
+					we'll get you back on the road with confidence.
+				</p>
+			</div>
+		</section>
+
+		<!-- Service 2 -->
+		<section class="service-row service-row--reversed">
+			<div class="service-row__content">
+				<h3 class="service-row__title">Scheduled Maintenance</h3>
+				<p class="service-row__tagline">
+					60 / 90 / 120K service intervals
+				</p>
+				<p class="service-row__body">
+					A scheduled service is crucial to maintaining a dependable
+					automobile. Making your car work harder than it needs to
+					shortens its life and leads to costly repairs down the line.
+					Our maintenance packages cover oil and filter changes, fluid
+					top-offs, tire rotations, belt and hose inspections, and
+					multi-point vehicle checks — all performed by experienced
+					technicians who know what to look for. Staying on top of
+					your 60K, 90K, and 120K milestones keeps your engine running
+					efficiently, protects your warranty, and helps preserve your
+					vehicle's resale value. Drop it off at T-Rex for a
+					maintenance service today.
+				</p>
+			</div>
+			<div class="service-row__image">
+				<img
+					src="/src/assets/rex-3.webp"
+					alt="Mechanics working on car engine"
+				/>
+			</div>
+		</section>
+
+		<!-- Hours Section -->
+		<section id="hours" class="hours">
+			<div class="hours__content">
+				<div class="section-header section-header--dark">
+					<span class="section-header__num">02</span>
+					<span class="section-header__text">Hours</span>
+				</div>
+				<h2 class="section-title section-title--light">Come Visit</h2>
+				<div class="hours__table">
+					<div class="hours__row">
+						<span class="hours__day">Monday — Friday</span>
+						<span class="hours__time">8:30am – 5:30pm</span>
+					</div>
+					<div class="hours__row">
+						<span class="hours__day">Saturday</span>
+						<span class="hours__time">8:30am – 4:00pm</span>
+					</div>
+					<div class="hours__row">
+						<span class="hours__day">Sunday</span>
+						<span class="hours__time hours__time--closed"
+							>Closed</span
+						>
+					</div>
+				</div>
+				<a href="tel:9163326995" class="btn btn--outline-green"
+					>Call (916) 332-6995</a
+				>
+			</div>
+			<div class="hours__image">
+				<img
+					src="/src/assets/rex-4.webp"
+					alt="Three people smiling together"
+				/>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="contact">
+			<div class="section-header">
+				<span class="section-header__num">03</span>
+				<span class="section-header__text">Contact</span>
+				<span class="section-header__line"></span>
+			</div>
+			<div class="contact__inner">
+				<div class="contact__info">
+					<h2 class="section-title">Get In Touch</h2>
+					<div class="contact__details">
+						<p class="contact__address">2577 Elkhorn Blvd</p>
+						<p class="contact__address">Rio Linda, CA 95673</p>
+						<a
+							href="mailto:mark@trexautorepair.com"
+							class="contact__link"
+							>mark@trexautorepair.com</a
+						>
+						<a href="tel:9163326995" class="contact__link"
+							>(916) 332-6995</a
+						>
+					</div>
+				</div>
+				<form class="contact__form">
+					<div class="contact__form-row">
+						<div class="contact__field">
+							<label class="contact__label">Name *</label>
+							<input
+								type="text"
+								class="contact__input"
+								required
+							/>
+						</div>
+						<div class="contact__field">
+							<label class="contact__label">Email *</label>
+							<input
+								type="email"
+								class="contact__input"
+								required
+							/>
+						</div>
+					</div>
+					<div class="contact__form-row">
+						<div class="contact__field">
+							<label class="contact__label">Phone</label>
+							<input type="tel" class="contact__input" />
+						</div>
+						<div class="contact__field">
+							<label class="contact__label">Subject</label>
+							<input type="text" class="contact__input" />
+						</div>
+					</div>
+					<div class="contact__field">
+						<label class="contact__label">Message</label>
+						<textarea class="contact__textarea"></textarea>
+					</div>
+					<button type="submit" class="btn btn--dark">
+						Send Message
+					</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<span class="footer__logo"><img src="/src/assets/logo.png" alt="T-Rex" class="footer__logo-img" /> AUTO REPAIR</span>
+			<span class="footer__copy"
+				>© 2018 T-Rex Towing & Auto Repair. Rio Linda, CA.</span
+			>
+			<span class="footer__phone">(916) 332-6995</span>
+		</footer>
+
+		<script type="module" src="/src/main.js"></script>
+		<script
+			id="portal-scripts"
+			data-api-key="b1506416112149c1a6677da8f67ba359"
+			data-google-analytics-enabled="true"
+			data-loading-color="000000"
+			src="https://portal.autoops.com/portal-scripts.js"
+		></script>
+	</body>
+</html>
