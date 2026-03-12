@@ -837,6 +837,17 @@ html.lenis body {
 	color: var(--cream);
 }
 
+.footer__icon {
+	display: flex;
+	align-items: center;
+	color: rgba(242, 237, 228, 0.65);
+	transition: color 0.2s;
+}
+
+.footer__icon:hover {
+	color: var(--cream);
+}
+
 /* ============================================
    Responsive — tablet
    ============================================ */
