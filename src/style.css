@@ -220,6 +220,7 @@ html.lenis body {
 
 .section-label--green {
 	color: var(--green);
+	font-weight: 600;
 }
 
 .section-header {
